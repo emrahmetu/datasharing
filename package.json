@@ -1,0 +1,25 @@
+{
+  "name": "cashflow-program",
+  "version": "1.0.0",
+  "description": "Soda Grubu Hazine Yönetim Sistemi — Treasury management with Next.js",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client",
+    "nextjs"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm install --workspace=server && npm install --workspace=client && npm install --workspace=nextjs",
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "dev:treasury": "npm run dev --workspace=nextjs",
+    "build": "npm run build --workspace=client",
+    "build:treasury": "npm run build --workspace=nextjs",
+    "start": "npm run start --workspace=server",
+    "start:treasury": "npm run start --workspace=nextjs"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
